@@ -16,12 +16,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".A2"
+        <activity
+            android:name=".A2"
             android:parentActivityName=".A1">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".A1" />
+        </activity>
+        <activity
+            android:name=".A3"
+            android:parentActivityName=".A2">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".A2" />
+
         </activity>
     </application>
 
