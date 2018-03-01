@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Lab1</string>
-    <string name="edit_message">Enter a message</string>
+    <string name="edit_message">Enter name</string>
     <string name="button_send">Send</string>
+    <string name="items">spinner_items</string>
     <string-array name="spinner_items">
         <item>1</item>
         <item>2</item>

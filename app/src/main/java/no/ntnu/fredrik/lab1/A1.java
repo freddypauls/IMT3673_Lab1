@@ -12,7 +12,6 @@ import android.widget.Spinner;
 import android.widget.AdapterView;
 
 public class A1 extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "no.ntnu.fredrik.lab1";
 
 
     @Override
@@ -20,19 +19,30 @@ public class A1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a1);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        Spinner spinner = findViewById(R.id.L1);
+
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.spinner_items, android.R.layout.simple_spinner_item);
+
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
 
+        // Shared preference
+        final SharedPreferences spin = getSharedPreferences("Lab1", MODE_PRIVATE);
+        spinner.setSelection(spin.getInt("spinner_items", 0));
+
+        // Spinner select
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> AdapterView, View view, int i, long j) {
-                
+                SharedPreferences.Editor editor = spin.edit();
+                editor.putInt("spinner_items", i);
+                editor.commit();
+
             }
 
             @Override
@@ -46,9 +56,9 @@ public class A1 extends AppCompatActivity {
     public void sendMessage(View view) {
 
         Intent intent = new Intent(this, A2.class);
-        EditText editText = (EditText) findViewById(R.id.editText);
+        EditText editText = findViewById(R.id.editText);
         String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
+        intent.putExtra("name", message);
         startActivity(intent);
 
 
