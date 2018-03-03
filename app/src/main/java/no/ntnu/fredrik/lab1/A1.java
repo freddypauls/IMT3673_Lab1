@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.AdapterView;
 
@@ -31,7 +30,7 @@ public class A1 extends AppCompatActivity {
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
 
-        // Shared preference
+        // Shared preference, to save the Spinner variable
         final SharedPreferences spin = getSharedPreferences("Lab1", MODE_PRIVATE);
         spinner.setSelection(spin.getInt("spinner_items", 0));
 
@@ -54,7 +53,7 @@ public class A1 extends AppCompatActivity {
     }
 
     public void sendMessage(View view) {
-
+        // Makes intent and sends to the next view
         Intent intent = new Intent(this, A2.class);
         EditText editText = findViewById(R.id.editText);
         String message = editText.getText().toString();
