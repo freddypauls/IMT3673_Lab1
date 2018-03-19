@@ -1,4 +1,4 @@
-# Lab1
+# Lab 1
 Create an application consisting of 3 activities.
 ## The first, entry activity (A1), should have
 
